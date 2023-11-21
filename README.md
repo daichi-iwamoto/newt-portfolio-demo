@@ -1,4 +1,10 @@
-## 環境構築
+確認用URL : https://newt-portfolio-demo.vercel.app/portfolio
+
+[memo]
+- Vercelへのデプロイ・環境変数の設定済み
+- Newt の Webhook で更新毎に Vercel で build が行われるように設定済み
+
+## ローカル環境構築
 
 ### .env.local ファイルの準備
 
