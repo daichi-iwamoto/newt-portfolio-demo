@@ -2,10 +2,10 @@
 
 ### .env.local ファイルの準備
 
+下記データを `.env.local` ファイルに設定する。
+
 - スペース UID : https://app.newt.so/newt-portfolio-demo/settings/general
 - Newt CDN API Token : https://app.newt.so/newt-portfolio-demo/settings/api
-
-上記のデータを `.env.local` ファイルに設定する。
 
 ```
 NEWT_SPACE_UID=XXXXXXXXXXXX        # スペース UID
