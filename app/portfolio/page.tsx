@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const works = await getWork()
+
   return (
     <main className={styles.main}>
       {works.map(({
-        _id,
         title,
         publish,
         hideTitle,
@@ -22,16 +22,33 @@ export default async function Home() {
         detail,
         hideDetail,
       }) => (
-        <div key={_id}>
-          <div>{title}</div>
-          <div>{publish}</div>
-          <div>{hideTitle}</div>
-          <div className={styles.movie} dangerouslySetInnerHTML={{ __html: link.html }} />
-          <div>{inCharge.join(',')}</div>
-          <div className={styles.detail} dangerouslySetInnerHTML={{ __html: detail }} />
-          <div className={styles.detail} dangerouslySetInnerHTML={{ __html: hideDetail }} />
-        </div>
-      ))}
+        <>
+        {publish ? (
+          <div className={styles.work}>
+            <h2>{title}</h2>
+            <ul className={styles.inChargeList}>
+              {inCharge.map((value) => (
+                <li key={value}>{value}</li>  
+              ))}
+            </ul>
+            <div className={styles.detail} dangerouslySetInnerHTML={{ __html: detail }} />
+            <div className={styles.movie} dangerouslySetInnerHTML={{ __html: link.html }} />
+          </div>
+        ) : (
+          <div className={styles.work}>
+            <h2>{hideTitle}</h2>
+            <ul className={styles.inChargeList}>
+              {inCharge.map((value) => (
+                <li key={value}>{value}</li>  
+              ))}
+            </ul>
+            <div className={styles.detail} dangerouslySetInnerHTML={{ __html: hideDetail }} />
+            <div className={styles.dummyMovie} />
+          </div>
+        )}
+        </>
+        )
+      )}
     </main>
   )
 }
